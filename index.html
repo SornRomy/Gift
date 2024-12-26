@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gift for You</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: none;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .gift-box {
+      width: 300px;
+      height: 300px;
+      background-color: #e60073;
+      position: relative;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+      animation: sparkle 1.5s infinite;
+    }
+
+    .gift-box::before {
+      content: '\1F381'; /* Unicode for 🎁 */
+      font-size: 120px;
+    }
+
+    .gift-box:hover {
+      background-color: #b3005e;
+      transform: scale(1.1);
+    }
+
+    .gift-box::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      background-color: #fff;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes sparkle {
+      0%, 100% {
+        box-shadow: 0 0 20px #ff99cc, 0 0 40px #ff66b2;
+      }
+      50% {
+        box-shadow: 0 0 30px #ff66b2, 0 0 50px #ff3385;
+      }
+    }
+
+    .hidden-frame {
+      display: none;
+      margin-top: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    img {
+      width: 400px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .message {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #e60073;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="gift-box" id="giftBox"></div>
+    <div class="hidden-frame" id="frame">
+      <img src=".//img/f7b344dfacc17592843eed987204d172.jpg" alt="Framed Gift Image" />
+      <div class="message">Surprise! Here's your gift! ✨</div>
+    </div>
+  </div>
+
+  <script>
+    const giftBox = document.getElementById('giftBox');
+    const frame = document.getElementById('frame');
+
+    giftBox.addEventListener('click', () => {
+      frame.style.display = 'block';
+      giftBox.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
